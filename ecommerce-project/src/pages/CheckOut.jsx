@@ -1,5 +1,7 @@
 import './checkout-header.css';
 import './checkout.css'
+import { Headers } from '../components/Headers';
+
 
 export function CheckOut() {
     return (
@@ -7,7 +9,9 @@ export function CheckOut() {
             
             <title>Checkout</title>
 
-            <div className="checkout-header">
+            <Headers />
+
+            {/* <div className="checkout-header">
             <div className="header-content">
             <div className="checkout-header-left-section">
                 <a href="/">
@@ -25,7 +29,7 @@ export function CheckOut() {
                 <img src="images/icons/checkout-lock-icon.png" />
             </div>
             </div>
-            </div>
+            </div> */}
     
             <div className="checkout-page">
             <div className="page-title">Review your order</div>
