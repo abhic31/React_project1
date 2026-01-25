@@ -2,10 +2,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { Headers } from '../components/Headers';
 import './HomePage.css';
-import { products } from '../../starting-code/data/products'
 
 export function HomePage() {
-    const [products, setproducts] = useEffect([])
+    const [products, setproducts] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/products/')
