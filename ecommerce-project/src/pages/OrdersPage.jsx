@@ -1,13 +1,8 @@
 import { Headers } from '../components/Headers';
 import './orders.css';
-import axios from 'axios'
-import { useEffect, useState } from 'react';
+
 
 export function OrdersPage({ cart }) {
-
-    const [] = useState();
-
-
     return (
         <>
             <title>Orders</title>
