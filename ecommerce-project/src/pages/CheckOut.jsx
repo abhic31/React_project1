@@ -2,6 +2,7 @@ import './checkout-header.css';
 import './checkout.css';
 import PropTypes from 'prop-types';
 import { Headers } from '../components/Headers';
+import { formatMoney } from '../utils/money';
 
 export function CheckOut({ cart = [] }) {
   return (
@@ -19,7 +20,7 @@ export function CheckOut({ cart = [] }) {
 
             {cart.map((cartItem) => (
               <div
-                key={cartItem.productID}
+                key={cartItem.productID} 
                 className="cart-item-container"
               >
                 <div className="delivery-date">
@@ -29,7 +30,7 @@ export function CheckOut({ cart = [] }) {
                 <div className="cart-item-details-grid">
                   <img
                     className="product-image"
-                    src={cartItem.image || "images/products/athletic-cotton-socks-6-pairs.jpg"}
+                    src={cartItem.product.image}
                     alt=""
                   />
 
@@ -39,7 +40,7 @@ export function CheckOut({ cart = [] }) {
                     </div>
 
                     <div className="product-price">
-                      ${cartItem.price || "0.00"}
+                      {formatMoney(cartItem.product.priceCents)}
                     </div>
 
                     <div className="product-quantity">

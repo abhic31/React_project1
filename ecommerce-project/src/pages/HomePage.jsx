@@ -2,6 +2,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { Headers } from '../components/Headers';
 import './HomePage.css';
+import PropTypes from 'prop-types';
+import { formatMoney } from '../utils/money';
+
 
 export function HomePage({ cart }) {
     const [products, setproducts] = useState([])
@@ -41,7 +44,8 @@ export function HomePage({ cart }) {
                     </div>
 
                     <div className="product-price">
-                        ${(product.priceCents).toFixed(2)}
+                        {/* ${(product.priceCents).toFixed(2)} */}
+                        {formatMoney(product.priceCents)}
                     </div>
 
                     <div className="product-quantity-container">
@@ -72,11 +76,11 @@ export function HomePage({ cart }) {
                     </div>
                         )
             })}
-            
         </div>
         </div>
     </>
-
-
     );
 }
+HomePage.propTypes = {
+    cart: PropTypes.array.isRequired
+};
