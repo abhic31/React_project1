@@ -9,14 +9,18 @@ import { useEffect, useState } from 'react';
 
 
 export function CheckOut({ cart = [] }) {
-  const [deliveryoptions, Setdeliveryoptions] = useState([]);
+  const [deliveryoptions, setDeliveryOptions] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
-      .then((response) => {
-        Setdeliveryoptions(response.data)
-      })
-  },[]);
+    const fetchDeliveryOptions = async () => {
+      const response = await axios.get(
+        '/api/delivery-options?expand=estimatedDeliveryTime'
+      );
+      setDeliveryOptions(response.data);
+    };
+  
+    fetchDeliveryOptions();
+  }, []);
 
   return (
     <>
